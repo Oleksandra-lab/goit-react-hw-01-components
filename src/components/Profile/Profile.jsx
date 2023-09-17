@@ -1,35 +1,59 @@
-
-
+import propTypes from 'prop-types'
+import { ProfileWrap,
+        Description,
+        Avatar,
+        UserName,
+        Tag,
+        Location,
+        Statistics,
+        ListItem,
+        Label,
+        Quantity
+ } from './Profile.styled'
+ 
 const Profile = ({ username, tag, location, avatar, stats }) => {
     return (
-            <div className="profile">
-        <div className="description">
-    <img
-      src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-      alt={avatar}
-      className={avatar}
-      />
-    <p className="name">{username}</p>
-    <p className="tag">@{tag}</p>
-    <p className="location">{location}</p>
-  </div>
+            <ProfileWrap >
+        <Description>
+    <Avatar
+      src={avatar}
+      alt={username}
+      Avatar/>
+    <UserName>{username}</UserName>
+    <Tag>@{tag}</Tag>
+    <Location>{location}</Location>
+  </Description>
 
-  <ul className="stats">
-    <li>
-      <span className="label">Followers</span>
-      <span className="quantity">{stats.followers}</span>
-    </li>
-    <li>
-      <span className="label">Views</span>
-      <span className="quantity">{stats.views}</span>
-    </li>
-    <li>
-      <span className="label">Likes</span>
-      <span className="quantity">{stats.likes}</span>
-    </li>
-  </ul>
-</div>
+  <Statistics>
+    <ListItem>
+      <Label>Followers</Label>
+      <Quantity>{stats.followers}</Quantity>
+    </ListItem>
+    <ListItem>
+      <Label>Views</Label>
+      <Quantity>{stats.views}</Quantity>
+    </ListItem>
+    <ListItem>
+      <Label>Likes</Label>
+      <Quantity>{stats.likes}</Quantity>
+    </ListItem>
+  </Statistics>
+</ProfileWrap>
     )
 }
+
+Profile.propTypes = {
+  username: propTypes.string.isRequired , 
+  tag: propTypes.string.isRequired, 
+  location: propTypes.string.isRequired, 
+  avatar: propTypes.string.isRequired, 
+  stats: propTypes.shape ({
+    followers: propTypes.number.isRequired,
+    views: propTypes.number.isRequired,
+    likes: propTypes.number.isRequired
+  })
+
+}
+
 
 export default Profile
