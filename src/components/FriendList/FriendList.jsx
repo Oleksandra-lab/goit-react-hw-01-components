@@ -1,26 +1,22 @@
 import PropTypes from 'prop-types'
-import { } from './FriendList.styled'
+import { List, FriendsItem, StatusInLine, Avatar, Name } from './FriendList.styled'
 
 const FriendsList = ( { friends }) => (
-    <ul className="friend-list">
+    <List>
         {friends.map(({id, avatar, name, isOnLine}) =>
-        (<li 
-          key = {id}
-          avatar = {avatar}
-          name = {name}
-          isOnLine = {isOnLine}
-        className="item">
-        <span className="status">{isOnLine}</span>
-        <img className="avatar" src={avatar} alt={name} width="48" />
-        <p className="name">{name}</p>
-      </li>))}
+        (<FriendsItem 
+          key = {id}>
+        <StatusInLine style={{ backgroundColor: isOnLine ? "green" : "red" }}>{isOnLine}</StatusInLine>
+        <Avatar src={avatar} alt={name} width="48" />
+        <Name>{name}</Name>
+      </FriendsItem>))}
   
-</ul>
+</List>
 )
 
 FriendsList.propTypes = {
   friends: PropTypes.arrayOf(
-    PropTypes.shape({
+    PropTypes.exact({
       id: PropTypes.number.isRequired,
       avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
