@@ -11,8 +11,11 @@ width: 350px;
 margin-left: auto;
 margin-right: auto;
 margin-bottom: 20px;
-background-color: orange;
+background-color: lightskyblue;
+
 padding: 20px 30px;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
 `;
 
 export const StatusInLine = styled.span`
@@ -30,5 +33,5 @@ export const Name = styled.p`
 margin-right: 15px;
 font-weight: 500;
 font-size: 24px;
-color: violet;
+color: darkviolet;
 `;
