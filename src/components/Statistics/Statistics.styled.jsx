@@ -19,7 +19,7 @@ border-top-right-radius: 10px;
 padding: 30px;
 text-align: center;
 text-transform: uppercase;
-background-color: white;
+background-color: beige;
 font-size: 20px;
 font-weight: 500;
 `;

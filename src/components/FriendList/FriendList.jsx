@@ -3,10 +3,10 @@ import { List, FriendsItem, StatusInLine, Avatar, Name } from './FriendList.styl
 
 const FriendsList = ( { friends }) => (
     <List>
-        {friends.map(({id, avatar, name, isOnLine}) =>
+        {friends.map(({id, avatar, name, isOnline}) =>
         (<FriendsItem 
           key = {id}>
-        <StatusInLine style={{ backgroundColor: isOnLine ? "green" : "red" }}>{isOnLine}</StatusInLine>
+        <StatusInLine style={{ backgroundColor: isOnline ? "green" : "red" }}>{isOnline}</StatusInLine>
         <Avatar src={avatar} alt={name} width="48" />
         <Name>{name}</Name>
       </FriendsItem>))}
@@ -20,7 +20,7 @@ FriendsList.propTypes = {
       id: PropTypes.number.isRequired,
       avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      isOnLine: PropTypes.bool.isRequired
+      isOnline: PropTypes.bool.isRequired
 
     })
   ).isRequired
