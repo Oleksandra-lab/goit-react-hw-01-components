@@ -2,12 +2,12 @@
  import { getRandomHexColor } from './getRandomHexColor'
  import { StatisticsSection, Title, StatisticsList, StatItem, Label, Persentage } from './Statistics.styled'
 
- const Statistics = ({stats}) =>{
+ const Statistics = ({title, stats}) =>{
     return (
         <StatisticsSection>
-  <Title>Upload stats</Title>
+          {title && <Title>{title}</Title>}
 
-  <StatisticsList> {stats.map(stat =>
+        <StatisticsList> {stats.map(stat =>
      (<StatItem
      key = {stat.id}
      style = {{backgroundColor: getRandomHexColor()}}
@@ -21,6 +21,7 @@
  }
  
  Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
   stats: PropTypes.arrayOf(
     PropTypes.exact({
       id: PropTypes.string.isRequired,
